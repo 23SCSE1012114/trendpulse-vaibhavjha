@@ -1,0 +1,11 @@
+import pandas as pd
+from collections import Counter
+
+df = pd.read_csv("cleaned_trends.csv")
+
+words = " ".join(df['trend']).split()
+
+word_count = Counter(words)
+
+print("Top 10 words:")
+print(word_count.most_common(10))
