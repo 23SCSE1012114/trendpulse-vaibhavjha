@@ -1,0 +1,13 @@
+import pandas as pd
+
+df = pd.read_csv("trending_data.csv")
+
+df.dropna(inplace=True)
+df.drop_duplicates(inplace=True)
+
+df.columns = ['trend']
+df['trend'] = df['trend'].str.lower()
+
+print(df.head())
+
+df.to_csv("cleaned_trends.csv", index=False)
